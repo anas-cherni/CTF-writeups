@@ -22,8 +22,8 @@ This Task was pretty decent, I enjoyed it tbh.
 
 >Attachments
 http://1337.chal.imaginaryctf.org
-
-\\\\\ insert screenshot here \\\
+<br>
+<img src="https://github.com/anas-cherni/CTF-writeups/blob/main/Imaginary%20CTF%202022/screenshots/task.png"> <br>
 ### Source Code
 
 ```
