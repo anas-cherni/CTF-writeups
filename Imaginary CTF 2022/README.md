@@ -219,7 +219,7 @@ To bypass quotes blacklist :
 ```
 Note that I'am using 8 and 9 since they are not converted back to letters according to the list mentioned above.
 Theoretically, we are all good! <br>
-<img src="/screenshots/error.png"> <br>
+<img src="https://github.com/anas-cherni/CTF-writeups/blob/main/Imaginary%20CTF%202022/screenshots/error.png"> <br>
 mmm weirdoo ! after some testing I concluded that the author is blocking "require" from executing.
 One potential solution that works locally: 
 ```
