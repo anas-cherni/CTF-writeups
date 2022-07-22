@@ -1,5 +1,5 @@
 # Imaginary CTF 2022
-I played this CTF with my team ***SOter14*** and we were ***ranked 23th out of 800 international teams***. I was dealing with 9 web tasks and managed to **solve 6 out of them**. I felt dispointed for not solving extra 2 tasks after reading their solutions, they were super ez and i overthought them.<br>
+I played this CTF with my team ***SOter14*** and we were ***ranked 23th out of 800 international teams***. I was dealing with 9 web tasks and managed to **solve 6 out of them**. I felt disappointed for not solving extra 2 tasks after reading their solutions, they were super ez and i overthought them.<br>
 - **Intended difficulty**
 
 >| Challenge | Difficulty (1-10) |
@@ -128,7 +128,6 @@ app.get("/docker", async (ctx) => {
 
 app.start();
 ```
-### Solution
 The task was vulnerable to **SSTI** (server side template injection). From the code above it's obvious that it's using mojoJS as template engine :
 ```
 import mojo from "@mojojs/core";
@@ -228,7 +227,7 @@ One potential solution that works locally:
 Remember that we are allowed to use 2,8,9 (they re not converted back to letters) so we can automate the attack by:
 - Building whatever Js code char by char with String.fromCharCode() and using only [2,8,9].
 - Crafting the payload in the URL
-- Receiving back the response from the Server.
+- Receiving back the response from the Server.<br>
 **Kudos to my Team mate M0NGI** that came up with the idea! 
 Python code is attached in the repo.
 ```
@@ -298,7 +297,7 @@ Finally we can get the flag!  <br>
 ```
  (()=>{ var buffer = new Buffer(100); process.binding('fs').read(27, buffer, 0, 100, 0, undefined, undefined); return buffer.toString();})()
 ```
- All these payloads crafted with the py script that I mentioned above.
+ All these payloads should be crafted with the py script that I mentioned above.
 
 **flag** 
 >ictf{M0J0_15N7_0N_P4YL04D54LL7H37H1N65}
