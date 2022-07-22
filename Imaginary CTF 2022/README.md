@@ -315,7 +315,7 @@ This task is supposed to be one of the hardest (in this CTF), but it was not imp
 ### Solution
 The task was down, thus, i couldn't take some screenshots.
 To sum up:
-- We were give login/register panel
+- We were given login/register panel
 - Once logged in, you can vote only once
 - All users connect at the same time, the one who got most votes is eligible to see flag at endpoint /flag
 
