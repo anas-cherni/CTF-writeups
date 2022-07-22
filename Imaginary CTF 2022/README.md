@@ -322,7 +322,7 @@ To sum up:
  One potential **stored XSS** in the registration panel (username field) leads to execute arbitrary JS when the username is displayed for vote. My idea is to redirect every users to vote for me, no need to chain with CSRF since we have the link that leads directly to vote for my account.<br>
  **Final payload** 
 
-> whateverUsername<script\>document.location.replace("taskurl.com/vote-hash")</script\>
+> whateverUsername<script\>window.location.replace("taskurl.com/vote-hash")</script\>
 
 
 
