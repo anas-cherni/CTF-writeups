@@ -3,7 +3,7 @@
 ***Proud to be one of the founders of SOter14***
 https://ctftime.org/team/194091
 
-|                      |                               | TEAM     |
+| CTF Name                     |  Rank                             | TEAM     |
 |----------------------|-------------------------------|-------------|
 | Hacker's Playground 2022 by Samsung | Ranked 21st out of 735 teams  | SOter14 |
 | WMCTF2022 | Ranked 23rd out of +400 teams | SOter14 |
