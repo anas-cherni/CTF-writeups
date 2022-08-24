@@ -34,6 +34,7 @@ successfuly dumped the source code ! <br/>
  <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/decompile.png">
  </p><br/>
+ 
  ```java
  /* Decompiler 13ms, total 665ms, lines 93 */
 package controller;
@@ -128,7 +129,8 @@ public class IndexController extends HttpServlet {
       return headerMap;
    }
 }
- ```
+```
+
  > The other **VerifyCode.class** is handling the captcha and there is nothing interesting there.
  
  ### Notes:
@@ -138,7 +140,10 @@ public class IndexController extends HttpServlet {
             this.Response(resp, "bad");
          }
  ```
+ 
  - Ignoring SSL from incoming https request looks juicy
+ 
+ 
  ```java
   try {
             URL url1 = new URL(url);
@@ -165,13 +170,17 @@ public class IndexController extends HttpServlet {
             inputStream.close();
          }
  ```
+ 
 From linux env file:
  > file:///proc/self/environ
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/token.png">
 </p><br/>
 
-```eyJhbGciOiJSUzI1NiIsImtpZCI6Ik1IN0RxS0k3U0xhZ1ljYnk1WkE3WE5Mb2dMcVdLOXh5NXVEdmtfc2lKMWMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImN0ZmVyLXRva2VuLXB6NWxtIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImN0ZmVyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYjg2ODY0MTgtOWNiOC00MjZiLThkZmQtNTgxM2E1YTVmMTdiIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6Y3RmZXIifQ.JWwKPAYDMYDmqq-jg9Mzmvil-wG33skSqWsS3_zjv1bLGTRMUvP73w_LsLu7ptRJ1iofTbHBrgRyn01sJ2wjG8f-LruNFWwPj0S6zcGnfYlaUfG70lZIA7otXgEb2pCBzdqrxH4n4PR2aAE5wG-p_uoBjwiShrX-ykfxwErJMnwvJ15OQ57Y87QlZllkaYnvXgg3853qQ5ww414dz4UZ1BL7jXlcCjwbivHMifxMvUAL6GJWY-yoA3hJJBMNz5sjgUz71MXs-0wWLczDk5cv4mbXrjE-mCden5er32ifjsWBx6H_1i5JX6lSt3BP7iUxBQVaqLhnBtYR5nQuFADMFg```
+```
+eyJhbGciOiJSUzI1NiIsImtpZCI6Ik1IN0RxS0k3U0xhZ1ljYnk1WkE3WE5Mb2dMcVdLOXh5NXVEdmtfc2lKMWMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImN0ZmVyLXRva2VuLXB6NWxtIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImN0ZmVyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYjg2ODY0MTgtOWNiOC00MjZiLThkZmQtNTgxM2E1YTVmMTdiIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6Y3RmZXIifQ.JWwKPAYDMYDmqq-jg9Mzmvil-wG33skSqWsS3_zjv1bLGTRMUvP73w_LsLu7ptRJ1iofTbHBrgRyn01sJ2wjG8f-LruNFWwPj0S6zcGnfYlaUfG70lZIA7otXgEb2pCBzdqrxH4n4PR2aAE5wG-p_uoBjwiShrX-ykfxwErJMnwvJ15OQ57Y87QlZllkaYnvXgg3853qQ5ww414dz4UZ1BL7jXlcCjwbivHMifxMvUAL6GJWY-yoA3hJJBMNz5sjgUz71MXs-0wWLczDk5cv4mbXrjE-mCden5er32ifjsWBx6H_1i5JX6lSt3BP7iUxBQVaqLhnBtYR5nQuFADMFg
+```
+<br/>
 Special thanks to my teammate Raf² for mentionning that this is a Kubernetes related stuff
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/auth_k8s.png"><br/>
@@ -386,7 +395,7 @@ Well, it's **CVE-2022-33891** recently found by the security researcher **Kostya
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/CVE_explained.png">
  </p><br>
 
-We're too close to reach our flag, it's a **blind os command injection** context that will give us **remote code execution**, but hold on! Remember that **`** was blacklisted :)  
+We're too close to reach our flag, it's a **blind os command injection** context that will give us **remote code execution**, but hold on! Remember that **\`** was blacklisted :)  
 As a result, the proof of concept for this CVE ain't working :)
 >http://10.244.0.228:8080/?doAs=\`COMMAND\`
 
