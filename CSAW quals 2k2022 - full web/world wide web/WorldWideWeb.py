@@ -1,10 +1,7 @@
 import requests
 
 url="http://web.chal.csaw.io:5010/"
-
-
 session = requests.Session()
-
 
 with session : 
     next_word='stuff'
