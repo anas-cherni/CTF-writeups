@@ -481,14 +481,14 @@ One last thing to mention is that there is great option in mail command that you
 One single static page, there is no source code for the task and no interesting client side stuff which means that we should aim for fuzzing directories and files. Hopefully, the organizers released a small version of the mostly known wordlist rockyou.txt : that's a confirms that fuzzing is the starting point of the challenge.
  * /secret revealed a jwt that we'll need later
 
- ![](![](https://github.com/anas-cherni/CTF-writeups/blob/main/CSAW%20quals%202k2022%20-%20full%20web/Lost-in-amazon/jwt.png?raw=true))
+ ![](https://github.com/anas-cherni/CTF-writeups/blob/main/CSAW%20quals%202k2022%20-%20full%20web/Lost-in-amazon/jwt.png?raw=true)
 * Fuzzing recursively with depth of 2 seems to reveal smthg, because we can't do nothing at this level.
 
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/CSAW%20quals%202k2022%20-%20full%20web/Lost-in-amazon/fuzz.png?raw=true)
 
 >/developer/heaven
 
-![](![](https://github.com/anas-cherni/CTF-writeups/blob/main/CSAW%20quals%202k2022%20-%20full%20web/Lost-in-amazon/withouthCookie.png?raw=true))
+![](https://github.com/anas-cherni/CTF-writeups/blob/main/CSAW%20quals%202k2022%20-%20full%20web/Lost-in-amazon/withouthCookie.png?raw=true)
 
 We need to add a cookie to authenticate
 
