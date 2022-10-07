@@ -1,10 +1,3 @@
----
-title: Securinets Friendly CTF 2k22
-date: 2022-10-7
-excerpt: "<p><b>Securinets Friendly CTF </b> is our very first CTF for 2022-2O23 academic year. It's meant to be for <b> early beginners without prior knowledge </b> in order to introduce them to the field. This CTF was <b> 5 day long </b> and was launched after <b>4 hours Introduction To Cybersecurity training. </b> 
-I'am really blessed with the huge amount of satisfaction and feedbacks that we received from the players.
-Kudos to all the author for <b>the 113 creative and well structured challenges.</b></p>"
----
 
 # My web Tasks for Securinets Friendly CTF 2k22 
 
