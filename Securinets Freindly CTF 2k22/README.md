@@ -1,7 +1,7 @@
 # My web Tasks for Freindly CTF 2k22 
 
 ## Intro
-Securinets Freindly CTF is meant to be for early beginner with no prior knowledge in order to introduce them to the field. This CTF was 5 day long and was launched after 4 hour Introduction To Cybersecurity training. 
+Securinets Freindly CTF is our very first CTF for 2022-2O23 academic year. It's meant to be for early beginner with no prior knowledge in order to introduce them to the field. This CTF was 5 day long and was launched after 4 hour Introduction To Cybersecurity training. 
 I'am really blessed with the huge amount of satisfaction and feedbacks that we received from the players.
 Kudos to all the author for the 113 creative and well structured challenges.
 ## Stats
@@ -151,7 +151,7 @@ Eventhough the tasks are basic, all my web challs were well guided with source c
 
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/Tunisia_src4.png?raw=true)
 
-> solution :
+> solution : ?placeholder1=<div id="map"></div>
 
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/Tunisia_flag.png?raw=true)
 
