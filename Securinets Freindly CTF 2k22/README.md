@@ -151,7 +151,7 @@ Eventhough the tasks are basic, all my web challs were well guided with source c
 
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/Tunisia_src4.png?raw=true)
 
-> solution : ?placeholder1=<div id="map"></div>
+> solution : ?placeholder1=\<div id="map"\>\</div>
 
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/Tunisia_flag.png?raw=true)
 
