@@ -5,6 +5,9 @@ Securinets Freindly CTF is our very first CTF for 2022-2O23 academic year. It's 
 I'am really blessed with the huge amount of satisfaction and feedbacks that we received from the players.
 Kudos to all the author for the 113 creative and well structured challenges.
 ## Stats
+
+![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/stats.png?raw=true)
+
 ## Web Writeups
 I'am writing this for the people who asked about solutions, hope you find this helpful.
 
@@ -156,6 +159,7 @@ Eventhough the tasks are basic, all my web challs were well guided with source c
 ![](https://github.com/anas-cherni/CTF-writeups/blob/main/Securinets%20Freindly%20CTF%202k22/assets/Tunisia_flag.png?raw=true)
 
 > with base 64 decoding the secret is : GetElEmeNtById
+
 > flag : Securinets{GetElEmeNtById}
 
 ## Conclusion
